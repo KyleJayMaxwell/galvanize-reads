@@ -11,6 +11,10 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/new', function(req, res, next) {
+  res.render('books/new', { title: 'New Read', books:books });
+});
+
 // router.get('/', function(req, res, next) {
 //   members.getAllMembers().then(function(members) {
 //     res.render('members/all', { title: 'All Members', members:members });
