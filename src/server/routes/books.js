@@ -25,6 +25,24 @@ router.post('/new', function(req, res, next) {
   });
 });
 
+router.get('/edit/:id',function(req, res, next) {
+  var id = req.params.id;  
+  books.getSingleBook(id).then(function(book) {
+    res.render('books/edit', { title: 'Edit', book: book });
+  });
+});
+
+router.post('/edit/:id', function(req, res, next) {
+  var id = req.params.id; 
+  var title = req.body.title;
+  var cover_url = req.body.cover;
+  var genre = req.body.genre;
+  var description = req.body.desc; 
+  books.editBook(id, title, cover_url, genre, description).then(function(results) {
+    res.redirect('/books/'+id);
+  });
+});
+
 router.get('/:id', function(req, res, next) {
   var id = req.params.id;
   books.getSingleBook(id).then(function(book){
