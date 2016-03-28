@@ -11,6 +11,20 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/new', function(req, res, next) {
+  res.render('books/new', { title: 'New Read', books:books });
+});
+
+router.post('/new', function(req, res, next) {
+  var title = req.body.title;
+  var cover_url = req.body.cover;
+  var genre = req.body.genre;
+  var description = req.body.desc;
+  books.addBook(title, genre, description, cover_url).then(function(results) {
+    res.redirect('/books');
+  });
+});
+
 // router.get('/', function(req, res, next) {
 //   members.getAllMembers().then(function(members) {
 //     res.render('members/all', { title: 'All Members', members:members });
