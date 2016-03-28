@@ -24,3 +24,11 @@ nav li{
 nav img{
   height: 50px;
 }
+
+.center{
+  text-align: center;
+}
+
+.cover {
+  max-width: 50%;
+}
