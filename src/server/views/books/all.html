@@ -1,0 +1,28 @@
+{% extends '../layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+  
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Welcome to {{ title }}</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      {% for book in books %}
+      <div class="col-md-6">
+        <h1>{{ book.title }}</h1>
+        <h3>{{ book.genre }}</h3>
+        <p>Click here to view <a href="{{ book.b_id }}">{{ book.title }}</a></p>
+      </div>
+      <div class="col-md-6 center">
+        <img class="cover" src="{{ book.cover_url }}">
+      </div>
+      {% endfor %}
+    </div>
+
+
+{% endblock %}
