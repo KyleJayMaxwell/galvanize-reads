@@ -10,6 +10,13 @@ module.exports = {
       return books;
     });
   },
+  getSingleBook: function(id){
+    return books()
+    .where('b_id', id)
+    .then(function(book) {
+      return book;
+    });
+  },
   addBook: function(title, genre, description, cover_url){
     return books().insert({
       title: title,
@@ -19,6 +26,11 @@ module.exports = {
     })
     .then(function(results) {
       console.log(results);
+      return results;
+    });
+  },
+  deleteBook: function(id) {
+    return books().where('b_id', id).del().then(function(results) {
       return results;
     });
   }
