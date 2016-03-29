@@ -35,10 +35,11 @@ router.get('/edit/:id',function(req, res, next) {
 router.post('/edit/:id', function(req, res, next) {
   var id = req.params.id; 
   var title = req.body.title;
-  var cover_url = req.body.cover;
+  var cover_url = req.body.cover_url;
   var genre = req.body.genre;
   var description = req.body.desc; 
-  books.editBook(id, title, cover_url, genre, description).then(function(results) {
+  console.log(cover_url);
+  books.editBook(id, title, genre, description, cover_url).then(function(results) {
     res.redirect('/books/'+id);
   });
 });
