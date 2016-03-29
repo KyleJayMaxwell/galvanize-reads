@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/new', function(req, res, next) {
-  res.render('books/new', { title: 'New Read', books:books });
+  res.render('books/new', { title: 'Galvanize Reads', books:books });
 });
 
 router.post('/new', function(req, res, next) {
@@ -28,7 +28,7 @@ router.post('/new', function(req, res, next) {
 router.get('/edit/:id',function(req, res, next) {
   var id = req.params.id;  
   books.getSingleBook(id).then(function(book) {
-    res.render('books/edit', { title: 'Edit', book: book });
+    res.render('books/edit', { title: 'Galvanize Reads', book: book });
   });
 });
 
