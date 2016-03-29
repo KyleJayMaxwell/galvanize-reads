@@ -6,9 +6,9 @@ var knex = require('../../../db/knex');
 var authors = require('../queries/authors');
 
 router.get('/', function(req, res, next) {
-  // authors.getAllAuthors().then(function(books) {
-    res.render('authors/all', { title: 'All Authors'});
-  // });
+  authors.getAllAuthors().then(function(authors) {
+    res.render('authors/all', { title: 'All Authors', authors: authors});
+  });
 });
 
 // router.get('/new', function(req, res, next) {
