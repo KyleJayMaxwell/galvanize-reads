@@ -29,6 +29,17 @@ module.exports = {
       return results;
     });
   },
+  editBook: function(id, title, genre, description, cover_url) {
+    return books().where('b_id', id).update({
+      title: title,
+      genre: genre,
+      description: description,
+      cover_url: cover_url
+    })
+    .then(function(results) {
+      return results;
+    });
+  },
   deleteBook: function(id) {
     return books().where('b_id', id).del().then(function(results) {
       return results;
