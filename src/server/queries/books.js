@@ -6,31 +6,36 @@ module.exports = {
 
   getAllBooks: function(){
     return books()
+    .fullOuterJoin('genres', 'books.g_id', 'genres.g_id')
     .then(function(books) {
       return books;
     });
   },
   getSingleBook: function(id){
     return books()
+    .fullOuterJoin('genres', 'books.g_id', 'genres.g_id')
     .where('b_id', id)
     .then(function(book) {
       return book;
     });
   },
-  addBook: function(title, genre, description, cover_url){
-    return books().insert({
+  addBook: function(title, g_id, description, cover_url){
+    return books()
+    .fullOuterJoin('genres', 'books.g_id', 'genres.g_id')
+    .insert({
       title: title,
-      genre: genre,
+      g_id: g_id,
       description: description,
       cover_url: cover_url
     })
     .then(function(results) {
-      console.log(results);
       return results;
     });
   },
   editBook: function(id, title, genre, description, cover_url) {
-    return books().where('b_id', id).update({
+    return books()
+    .fullOuterJoin('genres', 'books.g_id', 'genres.g_id')
+    .where('b_id', id).update({
       title: title,
       genre: genre,
       description: description,
