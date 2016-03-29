@@ -7,7 +7,7 @@ var authors = require('../queries/authors');
 
 router.get('/', function(req, res, next) {
   authors.getAllAuthors().then(function(authors) {
-    res.render('authors/all', { title: 'All Authors', authors: authors});
+    res.render('authors/all', { title: 'Galvanize Reads', authors: authors});
   });
 });
 

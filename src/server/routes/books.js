@@ -7,7 +7,7 @@ var books = require('../queries/books');
 
 router.get('/', function(req, res, next) {
   books.getAllBooks().then(function(books) {
-    res.render('books/all', { title: 'All Reads', books:books });
+    res.render('books/all', { title: 'Galvanize Reads', books:books });
   });
 });
 
