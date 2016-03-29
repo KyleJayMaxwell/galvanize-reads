@@ -15,6 +15,16 @@ router.get('/new', function(req, res, next) {
   res.render('authors/new', { title: 'Galvanize Reads' });
 });
 
+router.post('/new', function(req, res, next) {
+  var first = req.body.first;
+  var portrait_url = req.body.portrait_url;
+  var last = req.body.last;
+  var bio = req.body.bio;
+  authors.addAuthor(first, last, bio, portrait_url).then(function(results) {
+    res.redirect('/authors');
+  });
+});
+
 // router.post('/new', function(req, res, next) {
 //   var title = req.body.title;
 //   var cover_url = req.body.cover;
