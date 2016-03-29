@@ -11,9 +11,9 @@ router.get('/', function(req, res, next) {
   });
 });
 
-// router.get('/new', function(req, res, next) {
-//   res.render('books/new', { title: 'New Read', books:books });
-// });
+router.get('/new', function(req, res, next) {
+  res.render('authors/new', { title: 'Galvanize Reads' });
+});
 
 // router.post('/new', function(req, res, next) {
 //   var title = req.body.title;
