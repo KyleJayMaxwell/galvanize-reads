@@ -1,0 +1,55 @@
+{% extends '../layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/"><img alt="Brand" src="../img/galvanize.png"></a>
+          <ul class="nav navbar-nav">
+            <li><a href="/">{{ title }}</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  
+    <div class="row">
+      <div class="col-md-12">
+        <h2>New Author</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <form method="POST" action="/authors/new">
+        <div class="col-md-6">
+          <div class="form-group">
+          <label for="first">First Name: </label>
+          <input type="text" name="first" class="form-control" id="first" placeholder="First Name" required>
+          </div>
+          <div class="form-group">
+          <label for="portrait_url">Portrait Url: </label>
+          <input type="text" name="portrait_url" class="form-control" id="portrait_url" placeholder="Portrait Link" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+          <label for="last">Last Name: </label>
+          <input type="text" name="last" class="form-control" id="last" placeholder="Last Name" required>
+          </div>
+          <div class="form-group">
+          <label for="bio">Biography: </label>
+          <textarea name="bio" class="form-control" id="bio" rows="5" required></textarea>
+          </div>
+        </div>
+        <div class="col-md-12 center">
+          <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+{% endblock %}
