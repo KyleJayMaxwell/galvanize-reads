@@ -1,0 +1,40 @@
+{% extends '../layout.html' %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/"><img alt="Brand" src="../../img/galvanize.png"></a>
+          <ul class="nav navbar-nav">
+            <li><a href="/">{{ title }}</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="row">
+      {% for author in author %}
+      <div class="col-md-12">
+        <h1>{{ author.first }} {{ author.last }}</h1>
+      </div>
+      <div class="col-md-6">
+        <p>{{ author.bio }}</p>
+<!--         <form method="GET" action="/books/edit/{{ book.b_id }}">
+          <button class="btn btn-info">Edit</button>
+        </form>
+        <br/>
+        <form method="POST" action="/books/{{ book.b_id }}">
+          <button class="btn btn-danger">Delete</button>
+        </form> -->
+      </div>
+      <div class="col-md-6 center">
+        <img class="cover" src="{{ author.portrait_url }}">
+      </div>
+      {% endfor %}
+    </div>
+    
+  </div>

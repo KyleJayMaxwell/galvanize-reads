@@ -34,7 +34,7 @@
       {% for author in authors %}
         <div class="col-md-6">
           <h2>{{ author.first }} {{ author.last }}</h2>
-        
+          <p>Click here to view <a href="/authors/{{ author.a_id }}"><button class="btn btn-primary">{{ author.first }}</button></a></p>
         </div>
         <div class="col-md-6 center">
           <img src="{{ author.portrait_url }}">

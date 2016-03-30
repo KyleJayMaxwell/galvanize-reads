@@ -10,25 +10,25 @@ module.exports = {
       return authors;
     });
   },
-  // getSingleBook: function(id){
-  //   return books()
-  //   .where('b_id', id)
-  //   .then(function(book) {
-  //     return book;
-  //   });
-  // },
-  addAuthor: function(first, last, bio, portrait_url){
-    return authors().insert({
-      first: first,
-      last: last,
-      bio: bio,
-      portrait_url: portrait_url
-    })
-    .then(function(results) {
-      console.log(results);
-      return results;
+  getSingleAuthor: function(id){
+    return authors()
+    .where('a_id', id)
+    .then(function(author) {
+      return author;
     });
   }
+  // addAuthor: function(first, last, bio, portrait_url){
+  //   return authors().insert({
+  //     first: first,
+  //     last: last,
+  //     bio: bio,
+  //     portrait_url: portrait_url
+  //   })
+  //   .then(function(results) {
+  //     console.log(results);
+  //     return results;
+  //   });
+  // }
   // editBook: function(id, title, genre, description, cover_url) {
   //   return books().where('b_id', id).update({
   //     title: title,
