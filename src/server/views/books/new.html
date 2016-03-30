@@ -36,8 +36,11 @@
         </div>
         <div class="col-md-6">
           <div class="form-group">
-          <label for="genre">Genre</label>
-          <input type="text" name="genre" class="form-control" id="genre" placeholder="Genre" required>
+            <select  name="g_id" id="g_id" required>
+              {% for genre in genres %}
+              <option value="{{ genre.g_id }}">{{ genre.genre }}</option>
+              {% endfor %}
+            </select>
           </div>
           <div class="form-group">
           <label for="description">Description</label>

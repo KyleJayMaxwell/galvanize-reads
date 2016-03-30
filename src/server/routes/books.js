@@ -13,15 +13,17 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/new', function(req, res, next) {
-  res.render('books/new', { title: 'Galvanize Reads', books:books });
+  genres.getAllGenres().then(function(genres){
+  res.render('books/new', { title: 'Galvanize Reads', genres: genres });
+  });
 });
 
 router.post('/new', function(req, res, next) {
   var title = req.body.title;
   var cover_url = req.body.cover;
-  var genre = req.body.genre;
+  var g_id = req.body.g_id;
   var description = req.body.desc;
-  books.addBook(title, genre, description, cover_url).then(function(results) {
+  books.addBook(title, g_id, description, cover_url).then(function(results) {
     res.redirect('/books');
   });
 });
