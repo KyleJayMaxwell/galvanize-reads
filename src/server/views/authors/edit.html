@@ -24,7 +24,7 @@
 
     <div class="row">
       {% for author in author %}
-      <form method="POST" action="/books/edit/{{ author.a_id }}">
+      <form method="POST" action="/authors/{{ author.a_id }}/edit">
         <div class="col-md-6">
           <div class="form-group">
             <label for="first">First Name: </label>

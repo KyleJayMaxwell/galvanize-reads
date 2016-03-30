@@ -18,9 +18,9 @@ module.exports = {
     });
   },
   editAuthor: function(id, first, last, bio, portrait_url) {
-    return authors
+    return authors()
     .where('a_id', id).update({
-      first: first,
+      first: first, 
       last: last,
       bio: bio,
       portrait_url: portrait_url

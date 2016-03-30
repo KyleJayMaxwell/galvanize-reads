@@ -39,6 +39,18 @@ router.get('/:id/edit', function(req, res, next) {
   });
 });
 
+router.post('/:id/edit', function(req, res, next) {
+  var id = req.params.id;
+  var first = req.body.first;
+  var portrait_url = req.body.portrait_url;
+  var last = req.body.last;
+  var bio = req.body.bio; 
+  console.log(id, first, last, portrait_url, bio);
+  authors.editAuthor(id, first, last, bio, portrait_url).then(function(results) {
+    res.redirect('/authors/'+id);
+  });
+});
+
 // router.post('/new', function(req, res, next) {
 //   var title = req.body.title;
 //   var cover_url = req.body.cover;
