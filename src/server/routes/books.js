@@ -72,7 +72,6 @@ router.get('/:id', function(req, res, next) {
 
 router.post('/:id', function(req, res, next) {
   var id = req.params.id;
-  console.log(id);
   books.deleteBook(id).then(function(books) {
     res.redirect('/books');
   });
