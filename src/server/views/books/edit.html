@@ -23,7 +23,6 @@
     </div>
 
     <div class="row">
-      {% for book in book %}
       <form method="POST" action="/books/edit/{{ book.b_id }}">
         <div class="col-md-6">
           <div class="form-group">
@@ -39,7 +38,10 @@
           <div class="form-group">
           <label for="g_id">Genre</label>
           <select name="g_id" id="g_id">
-            <option value="{{ book.g_id }}" selected="selected">{{ book.genre }}</option>
+            <option value="{{ book.g_id }}" selected="selected" disabled hidden style='display: none'>{{ book.genre }}</option>
+          {% for genre in genres %}
+            <option value="{{ genre.g_id }}">{{ genre.genre }}</option>
+          {% endfor %}
           </select>
           </div>
           <div class="form-group">
@@ -51,7 +53,6 @@
           <button class="btn btn-warning" type="submit" value="Submit">Change</button>
         </div>
       </form>
-      {% endfor %}
     </div>
 
   </div>

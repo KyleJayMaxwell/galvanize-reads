@@ -21,7 +21,6 @@ module.exports = {
   },
   addBook: function(title, g_id, description, cover_url){
     return books()
-    .fullOuterJoin('genres', 'books.g_id', 'genres.g_id')
     .insert({
       title: title,
       g_id: g_id,
@@ -32,12 +31,12 @@ module.exports = {
       return results;
     });
   },
-  editBook: function(id, title, genre, description, cover_url) {
+  editBook: function(id, title, g_id, description, cover_url) {
     return books()
     .fullOuterJoin('genres', 'books.g_id', 'genres.g_id')
     .where('b_id', id).update({
       title: title,
-      genre: genre,
+      g_id: g_id,
       description: description,
       cover_url: cover_url
     })
