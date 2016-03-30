@@ -4,6 +4,7 @@ var pg = require('pg');
 var connectionString = 'postgres://localhost:5432/gread';
 var knex = require('../../../db/knex');
 var books = require('../queries/books');
+var genres = require('../queries/genres');
 
 router.get('/', function(req, res, next) {
   books.getAllBooks().then(function(books) {
@@ -26,11 +27,29 @@ router.post('/new', function(req, res, next) {
 });
 
 router.get('/edit/:id',function(req, res, next) {
-  var id = req.params.id;  
-  books.getSingleBook(id).then(function(book) {
-    res.render('books/edit', { title: 'Galvanize Reads', book: book });
-  });
+  
+  var promises = [];
+
+  var id = req.params.id; 
+
+  promises.push(books.getSingleBook(id));
+  promises.push(genres.getAllGenres());
+
+  return Promise.all(promises)
+
+  .then(function(result) {
+    // console.log(result[1]);
+    res.render('books/edit', { title: 'Galvanize Reads',
+                                book: result[0][0],
+                                genres: result[1] 
+                              }
+              );
+  })
+
+  .catch( function (error) { return error; });
+
 });
+
 
 router.post('/edit/:id', function(req, res, next) {
   var id = req.params.id; 
