@@ -72,16 +72,10 @@ router.get('/:id', function(req, res, next) {
 
 router.post('/:id', function(req, res, next) {
   var id = req.params.id;
-  console.log(id);
   books.deleteBook(id).then(function(books) {
     res.redirect('/books');
   });
 });
 
-// router.get('/', function(req, res, next) {
-//   members.getAllMembers().then(function(members) {
-//     res.render('members/all', { title: 'All Members', members:members });
-//   });
-// });
 
 module.exports = router;
