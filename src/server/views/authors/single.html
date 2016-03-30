@@ -23,13 +23,13 @@
       </div>
       <div class="col-md-6">
         <p>{{ author.bio }}</p>
-        <form method="GET" action="/authors/{{ author .a_id }}/edit">
+        <form method="GET" action="/authors/{{ author.a_id }}/edit">
           <button class="btn btn-info">Edit</button>
         </form>
-<!--         <br/>
-        <form method="POST" action="/books/{{ book.b_id }}">
+        <br/>
+        <form method="POST" action="/authors/{{ author.a_id }}">
           <button class="btn btn-danger">Delete</button>
-        </form> -->
+        </form>
       </div>
       <div class="col-md-6 center">
         <img class="cover" src="{{ author.portrait_url }}">
