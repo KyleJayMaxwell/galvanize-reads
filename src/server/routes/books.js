@@ -66,7 +66,7 @@ router.post('/edit/:id', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
   var id = req.params.id;
   books.getSingleBook(id).then(function(book){
-    res.render('books/single', { title: 'Individual Book', book: book });
+    res.render('books/single', { title: 'Galvanize Reads', book: book });
   });
 });
 
