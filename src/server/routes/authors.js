@@ -11,6 +11,13 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/:id', function(req, res, next) {
+  var id = req.params.id;
+  authors.getSingleAuthor(id).then(function(author) {
+    res.render('authors/single', {title: 'Galvanize Reads', author: author})
+  });
+})
+
 router.get('/new', function(req, res, next) {
   res.render('authors/new', { title: 'Galvanize Reads' });
 });
