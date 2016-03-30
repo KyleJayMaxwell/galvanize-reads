@@ -38,7 +38,7 @@
           <div class="form-group">
           <label for="g_id">Genre</label>
           <select name="g_id" id="g_id">
-            <option value="{{ book.g_id }}" selected="selected" disabled hidden style='display: none' >{{ book.genre }}</option>
+            <option value="{{ book.g_id }}" selected="selected" disabled hidden style='display: none'>{{ book.genre }}</option>
           {% for genre in genres %}
             <option value="{{ genre.g_id }}">{{ genre.genre }}</option>
           {% endfor %}

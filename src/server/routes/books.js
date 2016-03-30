@@ -38,7 +38,6 @@ router.get('/edit/:id',function(req, res, next) {
   return Promise.all(promises)
 
   .then(function(result) {
-    // console.log(result[1]);
     res.render('books/edit', { title: 'Galvanize Reads',
                                 book: result[0][0],
                                 genres: result[1] 
@@ -55,10 +54,9 @@ router.post('/edit/:id', function(req, res, next) {
   var id = req.params.id; 
   var title = req.body.title;
   var cover_url = req.body.cover_url;
-  var genre = req.body.genre;
+  var g_id = req.body.g_id;
   var description = req.body.desc; 
-  console.log(cover_url);
-  books.editBook(id, title, genre, description, cover_url).then(function(results) {
+  books.editBook(id, title, g_id, description, cover_url).then(function(results) {
     res.redirect('/books/'+id);
   });
 });
