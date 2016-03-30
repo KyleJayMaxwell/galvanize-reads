@@ -16,6 +16,18 @@ module.exports = {
     .then(function(author) {
       return author;
     });
+  },
+  editAuthor: function(id, first, last, bio, portrait_url) {
+    return authors
+    .where('a_id', id).update({
+      first: first,
+      last: last,
+      bio: bio,
+      portrait_url: portrait_url
+    })
+    .then(function(results) {
+      return results;
+    });
   }
   // addAuthor: function(first, last, bio, portrait_url){
   //   return authors().insert({

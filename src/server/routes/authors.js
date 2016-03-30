@@ -32,6 +32,13 @@ router.post('/new', function(req, res, next) {
   });
 });
 
+router.get('/:id/edit', function(req, res, next) {
+  var id = req.params.id;
+  authors.getSingleAuthor(id).then(function(author) {
+    res.render('authors/edit', { title: 'Galvanize Reads', author: author });
+  });
+});
+
 // router.post('/new', function(req, res, next) {
 //   var title = req.body.title;
 //   var cover_url = req.body.cover;
